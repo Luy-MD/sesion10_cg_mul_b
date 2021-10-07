@@ -43,8 +43,7 @@ function init() {
     var t = 2.2;
     for (var i = 0; i < 3; i++) {
         d = t * 1.05
-
-	g = t * Math.PI/180
+	r = Math.PI/2
         arrCube.push(cubo(t, t, t, 0, 0, 0, 'Basic', (i==0 ? 'red': i==1 ? 'green' : 'blue'), false));
         
       /*if (i == 0)
@@ -55,9 +54,13 @@ function init() {
             arrCube[i].geometry.translate(0, 0, d)*/
 
         arrCube[i].geometry.translate((i==0)*d, (i==1)*d, (i==2)*d)
-	
-	arrCube[i].geometry.rotation((i==0)*g)
-	
+	if (i == 0){
+		arrCube[i].rotateZ(r)
+	} else if (i == 1){
+		arrCube[i].rotateX(r)
+	} else if (i == 2){
+		arrCube[i].rotateY(r)
+	}   
     }
 
 
